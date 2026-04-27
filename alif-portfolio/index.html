@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="alif.dev — Frontend Developer portfolio. React, Next.js, TypeScript specialist. Available for freelance." />
+  <title>ALIFIANSYAH Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>" />
+</head>
+<body>
+  
+  <!--PAGE LOADER-->
+  <div id="page-loader">
+    <div class="grid-bg"></div>
+    <div class="loader-content">
+      <!-- Logo -->
+      <div class="loader-logo">
+        <div class="pill-alif">ALIF</div>
+        <div class="pill-dev">DEV</div>
+      </div>
+
+      <!-- Orbiting ring + diamond -->
+      <div class="loader-orbit">
+        <svg class="ring" width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+          <circle id="loader-arc" cx="60" cy="60" r="52" fill="none"
+            stroke="var(--clr-accent)" stroke-width="2.5" stroke-linecap="round"
+            stroke-dasharray="326.73" stroke-dashoffset="326.73"
+            transform="rotate(-90 60 60)" />
+        </svg>
+        <div class="orbit-dot"></div>
+        <div class="diamond-spin">
+          <svg viewBox="0 0 40 40" fill="none" width="40" height="40">
+            <path d="M20 3 L37 20 L20 37 L3 20 Z" fill="var(--clr-accent)" />
+            <path d="M20 3 L3 20 L20 20 Z" fill="rgba(255,255,255,0.3)" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Percent counter -->
+      <div class="loader-counter">
+        <span class="percent-num"><span id="loader-percent">0</span><span class="percent-sign">%</span></span>
+        <span class="status-label" id="loader-status">Loading</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loader-bar" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL LINKS Fixed Sidebar (Desktop) -->
+  <div class="social-sidebar" id="social-sidebar">
+    <a href="https://www.linkedin.com/in/muhammad-rizky-alifiansyah-b1b714395/" target="_blank" class="blue-link">
+      <span class="social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </span>
+      LinkedIn
+    </a>
+    <a href="https://github.com/Alif-fiansyah" target="_blank" class="blue-link">
+      <span class="social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </span>
+      GitHub
+    </a>
+    <a href="https://x.com/alifcuy24?s=21" target="_blank" class="blue-link">
+      <span class="social-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </span>
+      X (Twitter)
+    </a>
+    <a href="https://www.instagram.com/mhdrzkyyal/" target="_blank" class="accent-link">
+      <span class="social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </span>
+      Instagram
+    </a>
+    <a href="mailto:rizkialif260@gmail.com" class="accent-link">
+      <span class="social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </span>
+      Email
+    </a>
+  </div>
+
+  <!-- Social Links — Mobile Toggle -->
+  <button class="social-mobile-toggle" id="social-mobile-btn" aria-label="Social links">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+  </button>
+  <div class="social-mobile-backdrop" id="social-mobile-backdrop"></div>
+  <div class="social-mobile-list" id="social-mobile-list">
+    <a href="https://www.linkedin.com/in/muhammad-rizky-alifiansyah-b1b714395/" target="_blank" class="blue-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/Alif-fiansyah" target="_blank" class="blue-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+    <a href="https://x.com/alifcuy24?s=21" target="_blank" class="blue-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X (Twitter)
+    </a>
+    <a href="https://www.instagram.com/mhdrzkyyal/" target="_blank" class="accent-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+    <a href="mailto:rizkialif260@gmail.com" class="accent-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+  </div>
+
+  <!-- 1. HERO SECTION -->
+  <div class="hero" id="top">
+    <div class="hero-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="grid-bg"></div>
+    <div class="glass-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="hero-nav">
+      <div class="nav-logo">
+        <div class="pill-alif">ALIF</div>
+        <div class="pill-dev">DEV</div>
+      </div>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <a href="mailto:alif@alif.dev" class="nav-hire">Hire me</a>
+    </nav>
+
+    <!-- Hero Main -->
+    <main class="hero-main">
+      <div class="hero-text-wrapper">
+
+        <!-- Card 1 — Bottom Left (desktop) -->
+        <div class="hero-card-float left">
+          <div class="hero-card-inner">
+            <div class="hero-card-avatar" style="background: #D2B48C;">
+              <img src="Images/alif.jpg" alt="Avatar" />
+            </div>
+            <div style="text-align:center; margin-top:0.5rem">
+              <p class="card-name">alif.dev</p>
+              <p class="card-sub">50+ projects</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Top Right (desktop) -->
+        <div class="hero-card-float right">
+          <div class="hero-card-inner">
+            <div class="hero-card-avatar" style="background: #2C3E50;">
+              <img src="Images/mikasa.jpg" alt="Avatar" style="transform:scale(1.5)" />
+            </div>
+            <div style="text-align:center; margin-top:0.5rem">
+              <p class="card-name">React Dev</p>
+              <p class="card-sub">4+ yrs experience</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability badge -->
+        <div class="avail-badge">
+          <span class="avail-dot">
+            <span class="ping"></span>
+            <span class="dot"></span>
+          </span>
+          <span>Available for freelance</span>
+        </div>
+
+        <!-- Text Stack -->
+        <div class="hero-text-stack">
+          <div class="hero-text-line line-alif">
+            <h1>LIFIANZHI</h1>
+          </div>
+          <div class="hero-text-line line-frontend">
+            <h1>FRONTEND</h1>
+          </div>
+          <div class="hero-text-line line-dev">
+            <h1>DEV</h1>
+          </div>
+        </div>
+
+        <!-- Mobile pill cards -->
+        <div class="hero-mobile-cards">
+          <div class="hero-mobile-pill">
+            <div class="pill-avatar" style="background:#D2B48C">
+              <img src="Images/alif.jpg" alt="Avatar" />
+            </div>
+            <div>
+              <p class="pill-name">alif.dev</p>
+              <p class="pill-sub">50+ projects</p>
+            </div>
+          </div>
+          <div class="hero-mobile-dot"></div>
+          <div class="hero-mobile-pill">
+            <div class="pill-avatar" style="background:#2C3E50">
+              <img src="Images/mikasa.jpg" alt="Avatar" style="transform:scale(1.5)" />
+            </div>
+            <div>
+              <p class="pill-name">React Dev</p>
+              <p class="pill-sub">4+ yrs exp</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  
+  <!-- CONTENT WRAPPER (parallax white overlay)       -->
+  
+  <div class="content-wrapper" id="content-wrapper">
+
+    <!-- ── 2. Features Section ── -->
+    <div class="features-section" id="features">
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card animate-on-scroll anim-fade-up">
+          <div class="blob-wavy"></div>
+          <div class="shine-streak"></div>
+          <h3>BUILD FAST UIs</h3>
+          <p>I craft responsive, pixel-perfect interfaces using React and Next.js that load blazing fast and feel native.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center">
+            <div class="feature-bubble blue">
+              React·Next.js
+            </div>
+            <div class="feature-badge accent" style="background:var(--clr-accent); color:#000; border-radius:9999px;">
+              TypeScript
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card animate-on-scroll anim-fade-up" style="animation-delay: 0.1s">
+          <div class="blob-wavy"></div>
+          <div class="shine-streak"></div>
+          <h3>CLEAN CODEBASE</h3>
+          <p>Clean, structured, and maintainable code built with best-in-class tools — shadcn/ui components and Tailwind CSS.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center">
+            <div class="feature-bubble blue">shadcn/ui · Tailwind</div>
+            <div class="feature-badge" style="background:var(--clr-primary); color:#fff; border-radius:0.5rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card animate-on-scroll anim-fade-up" style="animation-delay: 0.2s">
+          <div class="blob-wavy"></div>
+          <div class="shine-streak"></div>
+          <h3>SHIP ON TIME</h3>
+          <p>Track record of delivering projects on schedule with pixel-perfect execution and zero compromise on quality.</p>
+          <div class="feature-project-box">
+            <span class="num">50+</span> Projects Done
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. Services Section ── -->
+    <div class="services-section" id="about">
+      <!-- Left: Reveal Images -->
+      <div class="services-left animate-on-scroll anim-fade-left">
+        <div class="reveal-list">
+          <h3 class="list-label">Our services</h3>
+          <div class="reveal-item">
+            <div class="item-title">Branding</div>
+          </div>
+          <div class="reveal-item">
+            <div class="item-title">Web design</div>
+          </div>
+          <div class="reveal-item">
+            <div class="item-title">Illustration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="services-right animate-on-scroll anim-fade-right" style="animation-delay:0.1s">
+        <div class="avail-badge-sm animate-on-scroll anim-fade-down">
+          <span class="dot"></span>
+          Available for new projects
+
+        </div>
+        <h2>Crafting digital<br>experiences that <span class="highlight">stand out</span></h2>
+        <p class="desc">I specialize in building modern web applications with clean code architecture, smooth animations, and pixel-perfect designs. From concept to deployment.</p>
+        <div class="tech-stack-pills" id="stack">
+          <span class="tech-pill primary">React</span>
+          <span class="tech-pill accent">Next.js</span>
+          <span class="tech-pill primary">TypeScript</span>
+          <span class="tech-pill accent">Tailwind</span>
+          <span class="tech-pill primary">Framer Motion</span>
+          <span class="tech-pill accent">Node.js</span>
+        </div>
+        <div class="experience-card">
+          <div class="exp-label">Experience</div>
+          <div class="exp-value"><span class="accent">4+</span> Years</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 6. Career Journey Section ── -->
+    <section class="career-section" id="experience">
+      <div class="career-header animate-on-scroll anim-fade-up">
+        <span class="section-tagline">EXPERIENCE</span>
+        <h2>Career Journey</h2>
+        <p>The path of growth, challenges, and mastery in digital craftsmanship.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Connecting Line -->
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Items -->
+        <div class="timeline-items">
+          
+          <div class="timeline-item animate-on-scroll anim-fade-up">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-year">2025 — PRESENT</div>
+              <h3>Undergraduate Student</h3>
+              <div class="card-company">Dian Nuswantoro University</div>
+              <p>Commenced formal education in Computer Science. Deepening knowledge in algorithm design, data structures, and advanced React patterns.</p>
+              <div class="card-tags">
+                <span>University</span>
+                <span>Algorithm</span>
+                <span>React</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll anim-fade-up" style="animation-delay:0.1s">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-year">2023 — 2025</div>
+              <h3>Self-Taught & Freelance</h3>
+              <div class="card-company">Freelance / Personal Studio</div>
+              <p>The pre-university discovery phase. Mastering the foundations of the web and delivering small-scale UI projects for local clients.</p>
+              <div class="card-tags">
+                <span>Self-Taught</span>
+                <span>UI Design</span>
+                <span>HTML/CSS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll anim-fade-up" style="animation-delay:0.2s">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-year">2022 — 2023</div>
+              <h3>Web Exploration</h3>
+              <div class="card-company">Early Learning Phase</div>
+              <p>First encounter with code. Exploring the possibilities of digital creation through online platforms and community workshops.</p>
+              <div class="card-tags">
+                <span>Discovery</span>
+                <span>Basics</span>
+                <span>Logic</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. Portfolio Text Section ── -->
+    <section class="portfolio-text-section">
+      <div class="portfolio-text-inner">
+        <div class="animate-on-scroll anim-slide-text">
+          <div class="portfolio-big-text">
+            P<span class="diamond-letter"><svg viewBox="0 0 80 80" fill="none">
+              <defs>
+                <linearGradient id="diamondGrad" x1="0" y1="0" x2="80" y2="80">
+                  <stop offset="0%" stop-color="#0a0a0a"/>
+                  <stop offset="100%" stop-color="#333"/>
+                </linearGradient>
+                <linearGradient id="diamondShine" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </linearGradient>
+              </defs>
+              <path d="M40 4 C48 4 52 12 52 12 C52 12 60 4 66 10 C72 16 64 24 64 24 C64 24 76 24 76 34 C76 44 64 44 64 44 C64 44 72 52 66 58 C60 64 52 56 52 56 C52 56 52 68 40 68 C28 68 28 56 28 56 C28 56 20 64 14 58 C8 52 16 44 16 44 C16 44 4 44 4 34 C4 24 16 24 16 24 C16 24 8 16 14 10 C20 4 28 12 28 12 C28 12 32 4 40 4Z" fill="url(#diamondGrad)" stroke="#0a0a0a" stroke-width="1"/>
+              <path d="M40 18 L54 36 L40 54 L26 36 Z" fill="url(#diamondShine)" opacity="0.6"/>
+              <path d="M40 18 L26 36 L40 36 Z" fill="rgba(255,255,255,0.2)"/>
+            </svg></span>RTFOLI<span class="diamond-letter"><svg viewBox="0 0 80 80" fill="none">
+              <path d="M40 4 C48 4 52 12 52 12 C52 12 60 4 66 10 C72 16 64 24 64 24 C64 24 76 24 76 34 C76 44 64 44 64 44 C64 44 72 52 66 58 C60 64 52 56 52 56 C52 56 52 68 40 68 C28 68 28 56 28 56 C28 56 20 64 14 58 C8 52 16 44 16 44 C16 44 4 44 4 34 C4 24 16 24 16 24 C16 24 8 16 14 10 C20 4 28 12 28 12 C28 12 32 4 40 4Z" fill="url(#diamondGrad)" stroke="#0a0a0a" stroke-width="1"/>
+              <path d="M40 18 L54 36 L40 54 L26 36 Z" fill="url(#diamondShine)" opacity="0.6"/>
+              <path d="M40 18 L26 36 L40 36 Z" fill="rgba(255,255,255,0.2)"/>
+            </svg></span>
+          </div>
+        </div>
+        <p class="portfolio-desc animate-on-scroll anim-fade-up" style="animation-delay:0.5s">
+          A curated selection of digital works where engineering meets art,
+          creating meaningful interactions through clean code.
+        </p>
+        <div class="portfolio-divider animate-on-scroll anim-scale-x" style="animation-delay:0.8s">
+          <div class="line"></div>
+          <span class="label">Established 2026</span>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 6. Works Collection Header ── -->
+    <section class="gallery-section" id="work" style="padding-top: 2rem;">
+      <div class="works-header animate-on-scroll anim-fade-up" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-family: 'Arial Black', sans-serif; font-weight: 900; font-size: clamp(1.75rem, 4.5vw, 2.75rem); line-height: 1; letter-spacing: -0.02em; margin: 0; padding: 0; text-transform: uppercase; color: var(--clr-text);">WORKS COLLECTION</h2>
+        <p style="font-size: 0.875rem; font-weight: 500; color: var(--clr-text); margin-top: 1.5rem;">
+          A journey through curated visuals and motion design
+        </p>
+      </div>
+      <div class="bento-grid" id="bento-grid">
+        <!-- Items injected by JS -->
+      </div>
+    </section>
+
+
+    <!-- ── 7. Blog Section ── -->
+    <section class="blog-section" id="blog">
+      <div class="blog-header animate-on-scroll anim-fade-up">
+        <span class="section-tagline">JOURNAL</span>
+        <h2>Insights & Stories</h2>
+        <p>Sharing my thoughts on design, code, and digital craftsmanship.</p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Blog Post 1 -->
+        <article class="blog-card animate-on-scroll anim-fade-up" style="animation-delay: 0.1s">
+          <div class="blog-card-image">
+            <img src="Images/webdesign1.webp" alt="Blog Post 1" />
+            <div class="blog-category">Development</div>
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-date">March 24, 2026</span>
+            <h3>Building High-Performance React Apps with Modern Techniques</h3>
+            <p>Exploring how to optimize React applications for the core web vitals and better user experience.</p>
+
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card animate-on-scroll anim-fade-up" style="animation-delay: 0.2s">
+          <div class="blog-card-image">
+            <img src="Images/branding2.jpg" alt="Blog Post 2" />
+            <div class="blog-category">Design</div>
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-date">March 18, 2026</span>
+            <h3>The Art of Minimalist UI Design: A Practical Guide</h3>
+            <p>Why less is more and how to achieve clarity without sacrificing functionality in your digital products.</p>
+
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card animate-on-scroll anim-fade-up" style="animation-delay: 0.3s">
+          <div class="blog-card-image">
+            <img src="Images/branding1.jpg" alt="Blog Post 3" />
+            <div class="blog-category">Strategy</div>
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-date">March 10, 2026</span>
+            <h3>How to Ship Your First 50 Projects on Time and Under Budget</h3>
+            <p>My personal journey and the key lessons I learned from delivering over 50 successful client projects.</p>
+
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── 8. Rating Section ── -->
+    <section class="rating-section" id="rating-section">
+      <div class="animate-on-scroll anim-fade-up">
+        <span class="rating-badge">FEEDBACK</span>
+        <h2>How was your experience?</h2>
+        <p class="rating-lead">We value your feedback to improve our services and products.</p>
+      </div>
+      
+      <div class="emoji-rating animate-on-scroll anim-fade-up" style="animation-delay:0.15s" id="emoji-rating">
+        <button class="emoji-btn" data-rating="1" data-label="That bad, huh?">😔</button>
+        <button class="emoji-btn" data-rating="2" data-label="Room to improve">😕</button>
+        <button class="emoji-btn" data-rating="3" data-label="Pretty okay!">😐</button>
+        <button class="emoji-btn" data-rating="4" data-label="Glad you liked it!">🙂</button>
+        <button class="emoji-btn" data-rating="5" data-label="You made my day! 🎉">😍</button>
+      </div>
+
+      <div class="emoji-footer animate-on-scroll anim-fade-up" style="animation-delay:0.2s">
+        <span class="rate-us-label">Rate us</span>
+        <div class="emoji-label" id="emoji-label">&nbsp;</div>
+      </div>
+    </section>
+
+  </div><!-- /content-wrapper -->
+
+  <footer class="footer">
+    <div class="footer-glow-line animate-on-scroll anim-scale-x"></div>
+
+    <div class="footer-top">
+      <div class="footer-brand animate-on-scroll anim-blur-fade">
+        <div class="footer-logo">
+          <span class="logo-text">ALIF</span>
+          <span class="logo-pill">.DEV</span>
+        </div>
+        <div class="footer-copyright">
+          &copy; 2026 alif.dev. All rights reserved.
+        </div>
+      </div>
+
+      <div class="footer-links animate-on-scroll anim-blur-fade" style="animation-delay:0.1s">
+        <div class="link-col">
+          <h4>NAVIGATION</h4>
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h4>SERVICES</h4>
+          <ul>
+            <li><a href="#services">Web Dev</a></li>
+            <li><a href="#services">UI/UX Dev</a></li>
+            <li><a href="#services">Consulting</a></li>
+            <li><a href="#services">Freelance</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h4>STACK</h4>
+          <ul>
+            <li><a href="#stack">React</a></li>
+            <li><a href="#stack">Next.js</a></li>
+            <li><a href="#stack">TypeScript</a></li>
+            <li><a href="#stack">Tailwind</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h4>SOCIAL LINKS</h4>
+          <ul class="social-list">
+            <li><a href="https://github.com" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a></li>
+            <li><a href="https://instagram.com" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></li>
+            <li><a href="https://linkedin.com" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a></li>
+            <li><a href="https://x.com" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X/Twitter</a></li>
+            <li><a href="mailto:alif@alif.dev"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container (portaled to body) -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Gallery Modal (portaled to body) -->
+  <div id="gallery-modal-root"></div>
+
+  <!-- SVG Filters for Effects -->
+  <svg style="visibility: hidden; position: absolute;" width="0" height="0">
+    <filter id="liquidWavy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" result="noise" seed="2">
+        <animate attributeName="baseFrequency" values="0.012;0.015;0.012" dur="5s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+    </filter>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
