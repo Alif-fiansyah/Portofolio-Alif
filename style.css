@@ -616,7 +616,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: 'Arial Black', Impact, sans-serif;
   font-weight: 900;
   line-height: 0.85;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
@@ -626,7 +626,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform-style: preserve-3d;
 }
 .hero-text-line.line-alif h1 {
-  font-size: clamp(6rem, 20vw, 280px); 
+  font-size: clamp(3rem, 12vw, 150px); 
   color: var(--clr-accent);
   background: linear-gradient(
     110deg, 
@@ -663,8 +663,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   from { background-position: 200% center; }
   to { background-position: -200% center; }
 }
-.hero-text-line.line-frontend h1 { font-size: clamp(7.5rem, 25vw, 450px); }
-.hero-text-line.line-dev h1 { font-size: clamp(6rem, 20vw, 280px); }
+.hero-text-line.line-frontend h1 { font-size: clamp(3.5rem, 16vw, 225px); }
+.hero-text-line.line-dev h1 { font-size: clamp(3rem, 12vw, 150px); }
 
 /* The Liquid Wavy + Glitch Effect on Hover */
 .hero-text-line h1:hover {
