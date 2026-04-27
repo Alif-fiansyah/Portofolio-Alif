@@ -626,7 +626,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform-style: preserve-3d;
 }
 .hero-text-line.line-alif h1 {
-  font-size: clamp(5rem, 18vw, 240px); 
+  font-size: clamp(6rem, 20vw, 280px); 
   color: var(--clr-accent);
   background: linear-gradient(
     110deg, 
@@ -663,8 +663,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   from { background-position: 200% center; }
   to { background-position: -200% center; }
 }
-.hero-text-line.line-frontend h1 { font-size: clamp(6rem, 22vw, 350px); }
-.hero-text-line.line-dev h1 { font-size: clamp(5rem, 18vw, 240px); }
+.hero-text-line.line-frontend h1 { font-size: clamp(7.5rem, 25vw, 450px); }
+.hero-text-line.line-dev h1 { font-size: clamp(6rem, 20vw, 280px); }
 
 /* The Liquid Wavy + Glitch Effect on Hover */
 .hero-text-line h1:hover {
@@ -2310,9 +2310,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   
   /* Hero Typography & Layout */
   .hero-main { padding-bottom: 8rem; }
-  .hero-text-line.line-alif h1 { font-size: clamp(4.5rem, 24vw, 8rem); }
-  .hero-text-line.line-frontend h1 { font-size: clamp(4rem, 18vw, 7rem); }
-  .hero-text-line.line-dev h1 { font-size: clamp(4rem, 18vw, 7rem); }
+  .hero-text-line.line-alif h1 { font-size: clamp(5rem, 28vw, 10rem); }
+  .hero-text-line.line-frontend h1 { font-size: clamp(4.5rem, 22vw, 9rem); }
+  .hero-text-line.line-dev h1 { font-size: clamp(4.5rem, 22vw, 9rem); }
   
   /* Feature Grid (1 column on mobile) */
   .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
